@@ -1,0 +1,48 @@
+1. Zbieranie opóźnień screeny
+2. Wyświetlanie opóźnień per day/month http://jurix.usermd.net/screens/
+3. Missing records http://jurix.usermd.net/wyplaty-opoznienia/?site=tests&m=3&y=2019
+4. Wyświetlanie statsów https://radger.ct8.pl/stat/
+5. News csv to DB http://jurix.usermd.net/csv/
+6. Wyświeltanie bazy csv http://jurix.usermd.net/csv/news.php?m=3
+7. Wyświetlanie nowych gier, odznaczanie "ogarniętych"
+8. menu Gamekit
+9. notatki copy-paste
+
+1. Tworzenie widoku przy migracji 
+(select `tool_gamekit`.`promoted_games`.`id` AS `id`,`tool_gamekit`.`promoted_games`.`game_name` AS `game_name`,`tool_gamekit`.`promoted_games`.`country_code` AS `country_code` from `tool_gamekit`.`promoted_games` group by `tool_gamekit`.`promoted_games`.`game_name`,`tool_gamekit`.`promoted_games`.`country_code` order by `tool_gamekit`.`promoted_games`.`country_code`,`tool_gamekit`.`promoted_games`.`game_name`)
+
+
+SELECT id, game_name, 
+if(`country_code` = 'de', 'de',
+   if(`country_code` = 'at', 'de',
+      if(`country_code` = 'ru', 'ru',
+         if(`country_code`= 'ua', 'ru',
+            if(`country_code`= 'kz', 'ru',
+              if(`country_code`= 'by', 'ru',
+                 if(`country_code`= 'pl', 'pl',
+                  	if(`country_code`= 'it', 'it',
+                   	  if(`country_code`= 'es', 'es',
+                      	if(`country_code`= 'fr', 'fr',
+                           'gb'
+                           
+                        )
+                      )  
+                   )
+                 )
+              )
+           )
+         )
+       )
+     )
+  )   
+  as section,
+  `country_code`
+
+FROM `promoted_games_profiles_list` group by section, `game_name`
+
+2. hash do łączenia z menu
+3. instrukcja menu
+
+
+    
+    

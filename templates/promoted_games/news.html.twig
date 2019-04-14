@@ -1,0 +1,19 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Promoted games - news list{% endblock %}
+
+{% block body %}
+<style>
+table {
+	width: 500px;
+}
+table b {
+	background-color: #33EE33;
+}
+</style>
+
+<section class="jumbotron">
+	{{ games_table | raw  }}
+</section>
+{% endblock %}

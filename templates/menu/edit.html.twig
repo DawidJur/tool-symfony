@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}Gamekit custom menu{% endblock %}
+
+{% block body %}
+<section class="jumbotron">
+	<h3><a href="{{ path('menu') }}">Back to menu list</a></h3>
+	{{ form(form) }}
+</section>
+{% endblock %}

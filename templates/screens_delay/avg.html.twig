@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Screens - average delays{% endblock %}
+
+{% block body %}
+<style>
+.jumbotron { background-color: white; }
+</style>
+<section class="jumbotron">
+	<table border="1" style="text-align: center; float: left;"> 
+		<tr>
+			<th>
+				Month
+			</th>
+			<th>
+				Dogry
+			</th>
+			<th>
+				Gamekit
+			</th>
+		</tr>
+		{% for monthly in delay.monthly %}
+			<tr>
+				<td>
+					{{ monthly.Date }}
+				</td>
+				<td>
+					{{ monthly.DG }}
+				</td>
+				<td>
+					{{ monthly.GK }}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+	<table border="1" style="text-align: center; float: left;"> 
+		<tr>
+			<th>
+				Day
+			</th>
+			<th>
+				Dogry
+			</th>
+			<th>
+				Gamekit
+			</th>
+		</tr>
+		{% for daily in delay.daily %}
+			<tr>
+				<td>
+					{{ daily.Date }}
+				</td>
+				<td>
+					{{ daily.DG }}
+				</td>
+				<td>
+					{{ daily.GK }}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</section>
+{% endblock %}

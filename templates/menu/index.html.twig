@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gamekit custom menu{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+
+<section class="jumbotron">
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Link</th>
+			<th>Order</th>
+			<th>Action</th>
+		</tr>
+		{% for record in menu_records %}
+		<tr>
+			<td>{{ record.MenuName }}</td>
+			<td>{{ record.MenuLink }}</td>
+			<td>{{ record.MenuOrder }}</td>
+			<td>
+				<a href="{{ path('editMenuRecord', {'id': record.id }) }}"><button class="btn btn-warning btn-sm" >Edit</button></a>
+				<a href="{{ path('deleteMenuRecord', {'id': record.id }) }}"><button class="btn btn-danger btn-sm">Delete</button></a>
+			</td>
+		</tr>
+		{% endfor %}
+		{{ form_start(form) }}
+		<tr>
+			<td>{{ form_widget(form.MenuName) }}</td>
+			<td>{{ form_widget(form.MenuLink) }}</td>
+			<td>{{ form_widget(form.MenuOrder) }}</td>
+			<td>{{ form_widget(form.save) }}</td>
+		</tr>
+		{{ form_end(form) }}
+	</table>
+</section>
+{% endblock %}

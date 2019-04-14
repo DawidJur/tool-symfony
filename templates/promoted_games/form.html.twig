@@ -1,0 +1,17 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Promoted games - news list{% endblock %}
+
+{% block body %}
+<style>
+#games_list_month_select_raport_date_day {
+	display: none;
+}
+</style>
+
+<section class="jumbotron">
+	Move to this month raport: <a href="{{ path('promoted_games_news', {'year': 'now'|date('Y'), 'month': 'now'|date('n')}) }}"><button class="btn btn-success">Click</button></a>
+	{{ form(form) }}
+</section>
+{% endblock %}
